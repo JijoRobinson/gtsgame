@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Versus Mode — 1v1 Multiplayer Time Guessing Game (Up to 10 Players) | Guess the Second</title>
+  <meta name="description" content="Challenge 2 to 10 friends in the free online Versus time-guessing game. Pass one device, each player privately types their guess, and the closest to the hidden time wins." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.guessthesecond.com/versus.html" />
+ <meta property="og:type" content="website" />
+<meta property="og:title" content="Versus Mode — Multiplayer Time Guessing (2–10 Players)" />
+<meta property="og:description" content="Pass-and-play party game for up to 10 players. Closest guess wins." />
+<meta property="og:url" content="https://www.guessthesecond.com/versus.html" />
+<meta property="og:image" content="https://www.guessthesecond.com/assets/og-image.png" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Versus Mode — Multiplayer Time Guessing (2–10 Players)" />
+<meta name="twitter:description" content="Pass-and-play party game for up to 10 players. Closest guess wins." />
+<meta name="twitter:image" content="https://www.guessthesecond.com/assets/og-image.png" />
+    <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#8a5a3b" />
+  <link rel="apple-touch-icon" href="/assets/icon-192.png" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/styles.css" />
+  <script src="/assets/analytics.js" defer></script>
+  <script src="/assets/ads.js" defer></script>
+  <script src="/assets/game-sounds.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Versus Multiplayer Time Game",
+    "description": "Pass-and-play time guessing for 2 to 10 players.",
+    "url": "https://www.guessthesecond.com/versus.html",
+    "isPartOf": { "@type": "WebSite", "name": "Guess the Second", "url": "https://www.guessthesecond.com/" }
+  }
+  </script>
+</head>
+<body>
+  <script src="/assets/app-init.js"></script>
+  <script>
+  // Self-contained fallback: if the external init script was blocked by
+  // an ad blocker (e.g. ERR_BLOCKED_BY_CLIENT), show a minimal gate.
+  (function(){
+    setTimeout(function(){
+      if (window.__appInitLoaded) return;
+      if (document.getElementById("abd-overlay")) return;
+      var d=document.createElement("div");
+      d.id="abd-overlay";
+      d.style.cssText="position:fixed;inset:0;z-index:99999;background:rgba(15,23,42,.97);display:flex;align-items:center;justify-content:center;padding:1.5rem;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif";
+      d.innerHTML='<div style="max-width:480px;background:#1e293b;border:1px solid #334155;border-radius:16px;padding:2rem;text-align:center;color:#f1f5f9;box-shadow:0 20px 60px rgba(0,0,0,.5)">'+
+        '<div style="font-size:3rem;margin-bottom:.75rem">🛡️</div>'+
+        '<div style="font-size:1.4rem;font-weight:700;margin-bottom:.5rem">Ad blocker detected</div>'+
+        '<p style="color:#94a3b8;font-size:.95rem;line-height:1.55;margin-bottom:1.25rem">Guess the Second is free and supported by ads. Please disable your ad blocker (or turn off Brave Shields for this site) and refresh the page to continue.</p>'+
+        '<button onclick="location.reload()" style="background:#38bdf8;color:#0f172a;border:none;border-radius:10px;padding:.85rem 1.5rem;font-size:1rem;font-weight:700;cursor:pointer;width:100%">Refresh after disabling</button>'+
+        '</div>';
+      document.body.appendChild(d);
+    },1200);
+  })();
+  </script>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="logo">⏱️ Guess the Second</a>
+      <nav class="nav-links">
+        <a href="/stopwatch.html">Stopwatch</a>
+        <a href="/type-solo.html">Type Solo</a>
+        <a href="/teams.html">Teams</a>
+        <a href="/blog/">Blog</a>
+        <a href="/how-to-play.html">How to Play</a>
+        <a href="/type-solo.html" class="nav-cta">Play Solo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div data-ad="top"></div>
+
+      <div class="game-wrap">
+        <div class="page-head">
+          <a href="/" class="back-link">← Back to menu</a>
+        </div>
+
+        <!-- SETUP -->
+        <div class="card" data-section="setup">
+          <h1 class="text-center" style="font-size:1.5rem;margin-bottom:0.5rem">👥 Versus Mode</h1>
+          <p class="setup-intro">Add 2–10 players. Everyone watches the same hidden timer, then privately types a guess. Closest wins!</p>
+
+          <div class="setup-body">
+            <div class="setup-section">
+              <h3>Number of players (2–10)</h3>
+              <div class="counter">
+                <button id="vMinus">−</button>
+                <span class="count-label" id="vCountLabel">2 players</span>
+                <button id="vPlus">+</button>
+              </div>
+              <div class="name-list" id="vNameList"></div>
+            </div>
+            <button class="btn btn-start" id="vStart">Start Game</button>
+          </div>
+        </div>
+
+        <!-- PLAY -->
+        <div class="card hidden" data-section="play">
+          <h2 class="text-center" id="playTitle" style="font-size:1.3rem;margin-bottom:0.5rem">👥 Versus</h2>
+          <div class="play-info">A random time between 3 and 12 seconds.</div>
+          <div class="display big">
+            <span class="display-text" id="playDisplay">Get ready...</span>
+          </div>
+          <form class="guess-form hidden" id="guessForm">
+            <label class="guess-label" for="guessInput">
+              <span id="guessPrompt">Your guess</span>
+              <span class="guess-hint">seconds (e.g. 7.4)</span>
+            </label>
+            <input type="text" id="guessInput" class="guess-input" inputmode="none" readonly placeholder="0.0" autocomplete="off" />
+            <div class="numpad" id="numpad" aria-hidden="false">
+              <button type="button" data-key="1">1</button>
+              <button type="button" data-key="2">2</button>
+              <button type="button" data-key="3">3</button>
+              <button type="button" data-key="4">4</button>
+              <button type="button" data-key="5">5</button>
+              <button type="button" data-key="6">6</button>
+              <button type="button" data-key="7">7</button>
+              <button type="button" data-key="8">8</button>
+              <button type="button" data-key="9">9</button>
+              <button type="button" data-key="." class="key-dot">.</button>
+              <button type="button" data-key="0">0</button>
+              <button type="button" data-key="back" class="key-back" aria-label="Backspace">⌫</button>
+              <button type="button" data-key="clear" class="numpad-clear">Clear</button>
+            </div>
+            <button type="submit" class="btn btn-start">Lock In Guess</button>
+            <button type="button" class="btn btn-skip" id="guessSkip">Skip &amp; pass — no guess</button>
+            <p class="error-text" id="guessError" hidden>Please enter a valid time.</p>
+          </form>
+          <div class="pass-screen hidden" id="passScreen">
+            <div class="pass-check">✓</div>
+            <p class="pass-locked" id="passLocked">Guess locked in.</p>
+            <p class="pass-next" id="passNext"></p>
+            <button class="btn btn-start" id="passReady">I'm ready</button>
+          </div>
+        </div>
+
+        <!-- RESULT -->
+        <div class="card hidden" data-section="result">
+          <div class="target-row">
+            <span class="label">The time was</span>
+            <span class="target" id="resultTarget">—</span>
+          </div>
+          <div id="resultBody"></div>
+          <div class="result-actions">
+            <button class="btn btn-again" id="replayBtn">Play Again (same players)</button>
+            <button class="btn btn-ghost" id="newGameBtn">Change Players</button>
+          </div>
+        </div>
+
+        <div data-ad="game"></div>
+
+        <div class="article" style="margin-top:1.5rem">
+          <h2>How Versus mode works</h2>
+          <p>Versus is a <strong>pass-and-play party game</strong> that runs on a single phone, tablet, or computer. The same hidden timer runs once; then each player types their guess privately so nobody can copy. After the last player, you see a ranked leaderboard — the player closest to the actual time wins.</p>
+          <ul>
+            <li>Supports <strong>2 to 10 players</strong> per round.</li>
+            <li>Each round picks a new random time between 3 and 12 seconds.</li>
+            <li>Ties are possible and shown explicitly on the results screen.</li>
+          </ul>
+          <p>Have larger groups? Try <a href="/teams.html">Teams mode</a>, which supports up to 10 teams of up to 10 members each.</p>
+        </div>
+      </div>
+
+      <div data-ad="bottom"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">⏱️ Guess the Second</div>
+        <p>A free online timing game to test and improve your internal clock.</p>
+      </div>
+      <div>
+        <h4>Play</h4>
+        <a href="/stopwatch.html">Stopwatch</a>
+        <a href="/type-solo.html">Type &amp; Guess</a>
+        <a href="/versus.html">Versus</a>
+        <a href="/teams.html">Teams</a>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <a href="/blog/">Blog</a>
+        <a href="/how-to-play.html">How to Play</a>
+        <a href="/tips.html">Tips &amp; Strategy</a>
+        <a href="/about.html">About</a>
+        <!-- <a href="/contact.html">Contact</a> -->
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="container copyright">© <span id="year"></span> Guess the Second. All rights reserved.</div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="/assets/type-round.js"></script>
+  <script>
+    (function () {
+      var count = 2;
+      var savedNames = ["", ""];
+
+      function renderNames() {
+        document.getElementById("vCountLabel").textContent = count + " player" + (count > 1 ? "s" : "");
+        var list = document.getElementById("vNameList");
+        list.innerHTML = "";
+        for (var i = 0; i < count; i++) {
+          var input = document.createElement("input");
+          input.className = "name-input";
+          input.placeholder = "Player " + (i + 1) + " name";
+          input.value = savedNames[i] || "";
+          input.dataset.idx = i;
+          (function (idx) {
+            input.addEventListener("input", function () { savedNames[idx] = input.value; });
+          })(i);
+          list.appendChild(input);
+        }
+      }
+      document.getElementById("vMinus").addEventListener("click", function () {
+        if (count > 2) { count--; renderNames(); }
+      });
+      document.getElementById("vPlus").addEventListener("click", function () {
+        if (count < 10) { count++; savedNames[count - 1] = savedNames[count - 1] || ""; renderNames(); }
+      });
+
+      document.getElementById("vStart").addEventListener("click", function () {
+        var inputs = document.querySelectorAll("#vNameList .name-input");
+        var players = [];
+        inputs.forEach(function (inp, i) {
+          players.push({ id: "p" + i, name: inp.value.trim() || ("Player " + (i + 1)) });
+        });
+        TypeRound.start(players, "versus");
+      });
+
+      document.getElementById("newGameBtn").addEventListener("click", function () {
+        document.querySelectorAll('[data-section]').forEach(function (s) {
+          s.classList.toggle("hidden", s.getAttribute("data-section") !== "setup");
+        });
+      });
+
+      renderNames();
+    })();
+  </script>
+  <div data-ad="anchor"></div>
+  <script>
+  // Always require a network connection so ads load. Remove any previously
+  // installed service worker and wipe its caches.
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (regs) {
+      regs.forEach(function (r) { r.unregister(); });
+    }).catch(function(){});
+  }
+  if (window.caches) {
+    caches.keys().then(function (keys) {
+      keys.forEach(function (k) { caches.delete(k); });
+    }).catch(function(){});
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Type &amp; Guess — Free Time Estimation Game | Guess the Second</title>
+  <meta name="description" content="A hidden timer runs for a random 3–12 seconds, then stops. Type your guess of how long it lasted and see how accurate your internal clock is. Free online game." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.guessthesecond.com/type-solo.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Type &amp; Guess — Free Time Estimation Game" />
+<meta property="og:description" content="A hidden timer runs for a random time — then you type your guess. Test your internal clock for free." />
+<meta property="og:url" content="https://www.guessthesecond.com/type-solo.html" />
+<meta property="og:image" content="https://www.guessthesecond.com/assets/og-image.png" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Type &amp; Guess — Free Time Estimation Game" />
+<meta name="twitter:description" content="A hidden timer runs for a random time — then you type your guess. Test your internal clock for free." />
+<meta name="twitter:image" content="https://www.guessthesecond.com/assets/og-image.png" />
+    <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#8a5a3b" />
+  <link rel="apple-touch-icon" href="/assets/icon-192.png" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/styles.css" />
+  <script src="/assets/analytics.js" defer></script>
+  <script src="/assets/ads.js" defer></script>
+  <script src="/assets/game-sounds.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Type & Guess Time Game",
+    "description": "Hidden timer runs for a random duration; type your guess of the elapsed time.",
+    "url": "https://www.guessthesecond.com/type-solo.html",
+    "isPartOf": { "@type": "WebSite", "name": "Guess the Second", "url": "https://www.guessthesecond.com/" }
+  }
+  </script>
+</head>
+<body>
+  <script src="/assets/app-init.js"></script>
+  <script>
+  // Self-contained fallback: if the external init script was blocked by
+  // an ad blocker (e.g. ERR_BLOCKED_BY_CLIENT), show a minimal gate.
+  (function(){
+    setTimeout(function(){
+      if (window.__appInitLoaded) return;
+      if (document.getElementById("abd-overlay")) return;
+      var d=document.createElement("div");
+      d.id="abd-overlay";
+      d.style.cssText="position:fixed;inset:0;z-index:99999;background:rgba(15,23,42,.97);display:flex;align-items:center;justify-content:center;padding:1.5rem;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif";
+      d.innerHTML='<div style="max-width:480px;background:#1e293b;border:1px solid #334155;border-radius:16px;padding:2rem;text-align:center;color:#f1f5f9;box-shadow:0 20px 60px rgba(0,0,0,.5)">'+
+        '<div style="font-size:3rem;margin-bottom:.75rem">🛡️</div>'+
+        '<div style="font-size:1.4rem;font-weight:700;margin-bottom:.5rem">Ad blocker detected</div>'+
+        '<p style="color:#94a3b8;font-size:.95rem;line-height:1.55;margin-bottom:1.25rem">Guess the Second is free and supported by ads. Please disable your ad blocker (or turn off Brave Shields for this site) and refresh the page to continue.</p>'+
+        '<button onclick="location.reload()" style="background:#38bdf8;color:#0f172a;border:none;border-radius:10px;padding:.85rem 1.5rem;font-size:1rem;font-weight:700;cursor:pointer;width:100%">Refresh after disabling</button>'+
+        '</div>';
+      document.body.appendChild(d);
+    },1200);
+  })();
+  </script>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="logo">⏱️ Guess the Second</a>
+      <nav class="nav-links">
+        <a href="/stopwatch.html">Stopwatch</a>
+        <a href="/versus.html">Versus</a>
+        <a href="/teams.html">Teams</a>
+        <a href="/blog/">Blog</a>
+        <a href="/how-to-play.html">How to Play</a>
+        <a href="/versus.html" class="nav-cta">Multiplayer</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div data-ad="top"></div>
+
+      <div class="game-wrap">
+        <div class="page-head">
+          <a href="/" class="back-link">← Back to menu</a>
+        </div>
+
+        <!-- SETUP -->
+        <div class="card" data-section="setup">
+          <h1 class="text-center" style="font-size:1.5rem;margin-bottom:0.5rem">⌨️ Type &amp; Guess</h1>
+          <p class="setup-intro">A hidden timer will run for a random time between <strong>3 and 12 seconds</strong>, then stop automatically. Type how many seconds you think it ran.</p>
+          <button class="btn btn-start" id="startSolo">Start Round</button>
+        </div>
+
+        <!-- PLAY -->
+        <div class="card hidden" data-section="play">
+          <h2 class="text-center" id="playTitle" style="font-size:1.3rem;margin-bottom:0.5rem">⌨️ Type &amp; Guess</h2>
+          <div class="play-info">A random time between 3 and 12 seconds.</div>
+          <div class="display big">
+            <span class="display-text" id="playDisplay">Get ready...</span>
+          </div>
+          <form class="guess-form hidden" id="guessForm">
+            <label class="guess-label" for="guessInput">
+              <span id="guessPrompt">How long did the timer run?</span>
+              <span class="guess-hint">seconds (e.g. 7.4)</span>
+            </label>
+            <input type="text" id="guessInput" class="guess-input" inputmode="none" readonly placeholder="0.0" autocomplete="off" />
+            <div class="numpad" id="numpad" aria-hidden="false">
+              <button type="button" data-key="1">1</button>
+              <button type="button" data-key="2">2</button>
+              <button type="button" data-key="3">3</button>
+              <button type="button" data-key="4">4</button>
+              <button type="button" data-key="5">5</button>
+              <button type="button" data-key="6">6</button>
+              <button type="button" data-key="7">7</button>
+              <button type="button" data-key="8">8</button>
+              <button type="button" data-key="9">9</button>
+              <button type="button" data-key="." class="key-dot">.</button>
+              <button type="button" data-key="0">0</button>
+              <button type="button" data-key="back" class="key-back" aria-label="Backspace">⌫</button>
+              <button type="button" data-key="clear" class="numpad-clear">Clear</button>
+            </div>
+            <button type="submit" class="btn btn-start">Lock In Guess</button>
+            <button type="button" class="btn btn-skip" id="guessSkip">Don't type — just show me the answer</button>
+            <p class="error-text" id="guessError" hidden>Please enter a valid time.</p>
+          </form>
+          <div class="pass-screen hidden" id="passScreen">
+            <div class="pass-check">✓</div>
+            <p class="pass-locked" id="passLocked">Guess locked in.</p>
+            <p class="pass-next" id="passNext"></p>
+            <button class="btn btn-start" id="passReady">I'm ready</button>
+          </div>
+          <p class="text-center mt-1"><a href="/" class="back-link">← Quit to menu</a></p>
+        </div>
+
+        <!-- RESULT -->
+        <div class="card hidden" data-section="result">
+          <div class="target-row">
+            <span class="label">The time was</span>
+            <span class="target" id="resultTarget">—</span>
+          </div>
+          <div id="resultBody"></div>
+          <div class="result-actions">
+            <button class="btn btn-again" id="replayBtn">Play Again</button>
+            <button class="btn btn-ghost" id="newGameBtn">Main Menu</button>
+          </div>
+        </div>
+
+        <div data-ad="game"></div>
+
+        <div class="article" style="margin-top:1.5rem">
+          <h2>About Type &amp; Guess</h2>
+          <p>This mode is the purest test of your <strong>time perception</strong>. Because the target is random each round (between 3 and 12 seconds), you can't simply memorize a rhythm — you have to genuinely feel the passing seconds.</p>
+          <h3>Tips for a better guess</h3>
+          <ul>
+            <li>Silently count "one one-thousand, two one-thousand..." for a rough anchor.</li>
+            <li>Pay attention to your breathing — a relaxed breath takes about 4 seconds.</li>
+            <li>Try multiple rounds; most players improve within minutes.</li>
+          </ul>
+          <p>Want to make it competitive? Challenge friends in <a href="/versus.html">Versus mode</a> or organize <a href="/teams.html">team play</a>.</p>
+        </div>
+      </div>
+
+      <div data-ad="bottom"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">⏱️ Guess the Second</div>
+        <p>A free online timing game to test and improve your internal clock.</p>
+      </div>
+      <div>
+        <h4>Play</h4>
+        <a href="/stopwatch.html">Stopwatch</a>
+        <a href="/type-solo.html">Type &amp; Guess</a>
+        <a href="/versus.html">Versus</a>
+        <a href="/teams.html">Teams</a>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <a href="/blog/">Blog</a>
+        <a href="/how-to-play.html">How to Play</a>
+        <a href="/tips.html">Tips &amp; Strategy</a>
+        <a href="/about.html">About</a>
+        <!-- <a href="/contact.html">Contact</a> -->
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="container copyright">© <span id="year"></span> Guess the Second. All rights reserved.</div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="/assets/type-round.js"></script>
+  <script>
+    document.getElementById("startSolo").addEventListener("click", function () {
+      TypeRound.start([{ id: "solo", name: "You" }], "type-solo");
+    });
+    document.getElementById("newGameBtn").addEventListener("click", function () {
+      window.location.href = "/";
+    });
+  </script>
+  <div data-ad="anchor"></div>
+  <script>
+  // Always require a network connection so ads load. Remove any previously
+  // installed service worker and wipe its caches.
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (regs) {
+      regs.forEach(function (r) { r.unregister(); });
+    }).catch(function(){});
+  }
+  if (window.caches) {
+    caches.keys().then(function (keys) {
+      keys.forEach(function (k) { caches.delete(k); });
+    }).catch(function(){});
+  }
+  </script>
+</body>
+</html>

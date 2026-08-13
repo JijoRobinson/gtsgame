@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guess the Second — Free Online Timing Game (Solo & Multiplayer)</title>
+  <meta name="description" content="Guess the Second is a free online game where you judge hidden time intervals. Play solo, type-your-guess, 1v1 versus up to 10 players, or team mode. No download needed." />
+  <meta name="keywords" content="Guess the Second, timing game, reaction time game, online party game, multiplayer guessing game, time perception test, stopwatch game" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Guess the Second" />
+  <link rel="canonical" href="https://www.guessthesecond.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Guess the Second — Free Online Timing Game" />
+  <meta property="og:description" content="Judge hidden time intervals. Play solo or with up to 10 friends in versus or team mode. Free, no signup." />
+  <meta property="og:url" content="https://www.guessthesecond.com/" />
+  <meta property="og:site_name" content="Guess the Second" />
+  <meta property="og:image" content="https://www.guessthesecond.com/assets/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Guess the Second — Free Online Timing Game" />
+  <meta name="twitter:description" content="Judge hidden time intervals. Play solo or with up to 10 friends in versus or team mode." />
+  <meta name="twitter:image" content="https://www.guessthesecond.com/assets/og-image.png" />
+
+    <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#8a5a3b" />
+  <link rel="apple-touch-icon" href="/assets/icon-192.png" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" />
+<link rel="stylesheet" href="/assets/styles.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Guess the Second",
+    "url": "https://www.guessthesecond.com/",
+    "description": "Free online timing game where players guess hidden time intervals. Supports solo, versus, and team multiplayer modes.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any (web browser)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "120" }
+  }
+  </script>
+
+  <script src="/assets/analytics.js" defer></script>
+  <script src="/assets/ads.js" defer></script>
+  <script src="/assets/game-sounds.js" defer></script>
+
+  <!-- Google AdSense (uncomment after replacing ca-pub ID in assets/ads.js) -->
+  <!-- <meta name="google-adsense-account" content="ca-pub-0000000000000000"> -->
+</head>
+<body>
+  <script src="/assets/app-init.js"></script>
+  <script>
+  // Self-contained fallback: if the external init script was blocked by
+  // an ad blocker (e.g. ERR_BLOCKED_BY_CLIENT), show a minimal gate.
+  (function(){
+    setTimeout(function(){
+      if (window.__appInitLoaded) return;
+      if (document.getElementById("abd-overlay")) return;
+      var d=document.createElement("div");
+      d.id="abd-overlay";
+      d.style.cssText="position:fixed;inset:0;z-index:99999;background:rgba(15,23,42,.97);display:flex;align-items:center;justify-content:center;padding:1.5rem;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif";
+      d.innerHTML='<div style="max-width:480px;background:#1e293b;border:1px solid #334155;border-radius:16px;padding:2rem;text-align:center;color:#f1f5f9;box-shadow:0 20px 60px rgba(0,0,0,.5)">'+
+        '<div style="font-size:3rem;margin-bottom:.75rem">🛡️</div>'+
+        '<div style="font-size:1.4rem;font-weight:700;margin-bottom:.5rem">Ad blocker detected</div>'+
+        '<p style="color:#94a3b8;font-size:.95rem;line-height:1.55;margin-bottom:1.25rem">Guess the Second is free and supported by ads. Please disable your ad blocker (or turn off Brave Shields for this site) and refresh the page to continue.</p>'+
+        '<button onclick="location.reload()" style="background:#38bdf8;color:#0f172a;border:none;border-radius:10px;padding:.85rem 1.5rem;font-size:1rem;font-weight:700;cursor:pointer;width:100%">Refresh after disabling</button>'+
+        '</div>';
+      document.body.appendChild(d);
+    },1200);
+  })();
+  </script>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="logo">⏱️ Guess the Second</a>
+      <nav class="nav-links">
+        <a href="/type-solo.html">Type Solo</a>
+        <a href="/versus.html">Versus</a>
+        <a href="/teams.html">Teams</a>
+        <a href="/blog/">Blog</a>
+        <a href="/how-to-play.html">How to Play</a>
+        <a href="/type-solo.html" class="nav-cta">Play Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Top ad -->
+      <div data-ad="top"></div>
+
+      <section class="hero">
+        <h1>How Good Is Your Internal Clock?</h1>
+        <p>Start a hidden timer and guess how long it ran. Play solo to beat your own best, challenge up to 10 friends in Versus, or compete in Teams. Free — no signup, no download.</p>
+        <div class="hero-cta">
+          <a href="/type-solo.html" class="btn-hero">▶ Play Solo</a>
+          <a href="/versus.html" class="btn-hero secondary">👥 Play With Friends</a>
+        </div>
+      </section>
+
+      <h2 class="section-title">Choose a Game Mode</h2>
+      <div class="mode-grid">
+        <a href="/stopwatch.html" class="mode-card">
+          <span class="mode-icon">⏱️</span>
+          <span class="mode-name">Stopwatch</span>
+          <span class="mode-desc">Classic solo challenge: start the timer and click stop as close to 10 seconds as possible.</span>
+        </a>
+        <a href="/type-solo.html" class="mode-card">
+          <span class="mode-icon">⌨️</span>
+          <span class="mode-name">Type &amp; Guess</span>
+          <span class="mode-desc">A hidden timer runs for a random 3–12 seconds. When it stops, type your best guess of the elapsed time.</span>
+        </a>
+        <a href="/versus.html" class="mode-card">
+          <span class="mode-icon">👥</span>
+          <span class="mode-name">Versus (2–10)</span>
+          <span class="mode-desc">Pass-and-play party mode. Every player privately types their guess — whoever is closest wins.</span>
+        </a>
+        <a href="/teams.html" class="mode-card">
+          <span class="mode-icon">🏆</span>
+          <span class="mode-name">Teams</span>
+          <span class="mode-desc">Up to 10 teams of up to 10 players each. The team with the lowest average error takes the win.</span>
+        </a>
+      </div>
+
+      <!-- Middle ad -->
+      <div data-ad="middle"></div>
+
+      <section class="prose-home">
+        <div class="info-block">
+          <h3>🧠 Train Your Time Perception</h3>
+          <p>Studies show most people are surprisingly bad at estimating short durations. A few rounds a day can sharpen your sense of time and improve focus.</p>
+        </div>
+        <div class="info-block">
+          <h3>🎉 Perfect for Parties &amp; Classrooms</h3>
+          <p>Versus and Teams modes work on a single shared device. Set it up in seconds and let everyone take a turn — no apps to install.</p>
+        </div>
+        <div class="info-block">
+          <h3>📊 Instant Scoring</h3>
+          <p>Get a clear score out of 100, your exact difference in milliseconds, and a ranked leaderboard after every round.</p>
+        </div>
+      </section>
+
+      <h2 class="section-title">Why Play Guess the Second?</h2>
+      <div class="article" style="margin-top:0">
+        <p><strong>Guess the Second</strong> is a simple but surprisingly addictive browser game that tests your sense of time. Whether you have 30 seconds to kill or you're hosting a game night with friends, it delivers instant fun with zero setup.</p>
+        <p>Unlike reaction games that only test speed, Guess the Second challenges your <strong>internal clock</strong> — the mental ability to estimate durations without a visible reference. It's a skill used in music, cooking, sports, and everyday planning. Best of all, it improves with practice.</p>
+        <h3>Four ways to play</h3>
+        <ul>
+          <li><strong><a href="/stopwatch.html">Stopwatch</a></strong> — try to stop a timer at exactly 10 seconds.</li>
+          <li><strong><a href="/type-solo.html">Type &amp; Guess</a></strong> — a random hidden interval; type your estimate.</li>
+          <li><strong><a href="/versus.html">Versus</a></strong> — 2 to 10 players compete on one device.</li>
+          <li><strong><a href="/teams.html">Teams</a></strong> — multiple teams, each with multiple members.</li>
+        </ul>
+        <p>New to the game? Read the <a href="/how-to-play.html">how to play guide</a> or check out our <a href="/tips.html">tips to improve your time guessing</a>.</p>
+      </div>
+
+      <!-- Bottom ad -->
+      <div data-ad="bottom"></div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">⏱️ Guess the Second</div>
+        <p>A free online timing game to test and improve your internal clock. Play solo or with friends — no signup required.</p>
+      </div>
+      <div>
+        <h4>Play</h4>
+        <a href="/stopwatch.html">Stopwatch</a>
+        <a href="/type-solo.html">Type &amp; Guess</a>
+        <a href="/versus.html">Versus</a>
+        <a href="/teams.html">Teams</a>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <a href="/blog/">Blog</a>
+        <a href="/how-to-play.html">How to Play</a>
+        <a href="/tips.html">Tips &amp; Strategy</a>
+        <a href="/about.html">About</a>
+        <!-- <a href="/contact.html">Contact</a> -->
+        <a href="/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="container copyright">
+      © <span id="year"></span> Guess the Second. All rights reserved.
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <div data-ad="anchor"></div>
+  <script>
+  // Always require a network connection so ads load. Remove any previously
+  // installed service worker and wipe its caches.
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (regs) {
+      regs.forEach(function (r) { r.unregister(); });
+    }).catch(function(){});
+  }
+  if (window.caches) {
+    caches.keys().then(function (keys) {
+      keys.forEach(function (k) { caches.delete(k); });
+    }).catch(function(){});
+  }
+  </script>
+</body>
+</html>
