@@ -241,10 +241,10 @@
       body.appendChild(banner);
       if (anyValid && sfx()) sfx().celebrate();
       if (anyValid) {
-        summary = "🏆 " + teamStats[0].name + " won Guess the Time! The time was " +
+        summary = "🏆 " + teamStats[0].name + " won Guess the Second! The time was " +
                   target.toFixed(2) + "s. Can you beat them?";
       } else {
-        summary = "The time was " + target.toFixed(2) + "s. Play Guess the Time!";
+        summary = "The time was " + target.toFixed(2) + "s. Play Guess the Second!";
       }
 
       teamStats.forEach(function (t, i) {
@@ -293,11 +293,11 @@
       if (rows.length === 0) {
         b.textContent = "No guesses — the answer is shown above.";
         celebrate = false;
-        summary = "The time was " + target.toFixed(2) + "s. Play Guess the Time!";
+        summary = "The time was " + target.toFixed(2) + "s. Play Guess the Second!";
       } else if (lastMode === "type-solo") {
         b.textContent = verdictFor(bestErr);
         celebrate = bestErr < 0.7;
-        summary = "I played Guess the Time — the time was " + target.toFixed(2) +
+        summary = "I played Guess the Second — the time was " + target.toFixed(2) +
                   "s and I was off by " + bestErr.toFixed(2) + "s. Can you do better?";
       } else {
         var winners = rows.filter(function (r) { return r.err === bestErr; })
@@ -305,7 +305,7 @@
         b.textContent = winners.length > 1 ? "🏆 Tie: " + winners.join(" & ") + "!"
                                           : "🏆 " + winners[0] + " wins!";
         summary = (winners.length > 1 ? winners.join(" & ") + " tied" : winners[0] + " won") +
-                  " at Guess the Time! The time was " + target.toFixed(2) + "s.";
+                  " at Guess the Second! The time was " + target.toFixed(2) + "s.";
       }
       body.appendChild(b);
       if (celebrate && sfx()) {
@@ -363,14 +363,14 @@
     container.appendChild(row);
 
     var shareUrl = window.location.origin + window.location.pathname;
-    var text = summary || "Play Guess the Time!";
+    var text = summary || "Play Guess the Second!";
     var mainBtn = row.querySelector("#gttShareBtn");
     var alt = row.querySelector("#gttShareAlt");
     var toast = row.querySelector("#gttShareToast");
 
     mainBtn.addEventListener("click", function () {
       if (navigator.share) {
-        navigator.share({ title: "Guess the Time", text: text, url: shareUrl }).catch(function () {});
+        navigator.share({ title: "Guess the Second", text: text, url: shareUrl }).catch(function () {});
       } else {
         alt.hidden = !alt.hidden;
       }

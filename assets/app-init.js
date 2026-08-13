@@ -85,7 +85,7 @@
       '<div id="abd-icon">🛡️</div>' +
       '<div id="abd-title">Ad blocker detected</div>' +
       '<p id="abd-msg">' +
-      'Guess the Time is completely free and is supported by ads. We keep ' +
+      'Guess the Second is completely free and is supported by ads. We keep ' +
       'ads unobtrusive so they never get in the way of gameplay. ' +
       'To continue, please <strong>disable your ad blocker</strong> — ' +
       'in Brave, click the Shields icon (🦁) in the address bar and turn ' +
