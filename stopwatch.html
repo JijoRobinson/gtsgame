@@ -185,21 +185,27 @@
         return "😅 Keep practicing!";
       }
 
-      function pad(n) { return n < 10 ? "0" + n : "" + n; }
-      // Flicker random clock-style MM:SS values while the timer runs —
-      // looks like a running clock, but the values are pure noise and
-      // reveal nothing about the real elapsed time.
+      // Cycle playful symbols while the timer runs. No numbers are shown —
+      // the target here is exactly 10 seconds, and a fake reading like
+      // "10:xx" could trick players into stopping early. The symbols carry
+      // no information about the real elapsed time.
+      var SW_SYMBOLS = ["🍭","🍬","⭐","✨","⚡","🎈","🎯","🔮","🌀","💫","🍩","🍫","⏳","⌛","🕐","🌟"];
       function startFlicker() {
         stopFlicker();
+        display.classList.add("symbols");
+        var last = -1;
         function tick() {
-          display.textContent = pad(Math.floor(Math.random() * 60)) + ":" +
-                                pad(Math.floor(Math.random() * 60));
+          var i;
+          do { i = Math.floor(Math.random() * SW_SYMBOLS.length); } while (i === last);
+          last = i;
+          display.textContent = SW_SYMBOLS[i];
         }
         tick();
-        flicker = setInterval(tick, 100);
+        flicker = setInterval(tick, 140);
       }
       function stopFlicker() {
         if (flicker) { clearInterval(flicker); flicker = null; }
+        display.classList.remove("symbols");
       }
 
       function reset() {
@@ -298,5 +304,5 @@
     }).catch(function(){});
   }
   </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2f158f52e994b8c',t:'MTc4NzM5NjE1MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

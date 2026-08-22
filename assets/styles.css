@@ -588,6 +588,10 @@ main { flex: 1; padding: 1.5rem 0 2.5rem; }
   text-shadow: 0 0 22px rgba(134,239,172,.8);
   animation: donePop .5s cubic-bezier(.2,.9,.3,1.5);
 }
+/* Emoji flicker (Stopwatch) — emojis render smaller than digits, so bump size */
+.display-text.symbols {
+  font-size: clamp(2.6rem, 11vw, 3.4rem);
+}
 /* Live team standings between rounds */
 .round-standings {
   margin-top: 1rem;
