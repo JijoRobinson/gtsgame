@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stopwatch Game — Stop the Timer at 10 Seconds | Guess the Second</title>
+  <title>Stopwatch Game — Stop the Timer at 10 Seconds | Guess the Time</title>
   <meta name="description" content="Test your timing in the free Stopwatch game. Start the timer and click stop at exactly 10 seconds. Get an instant score and see how close you got." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.guessthesecond.com/stopwatch.html" />
-   <meta property="og:type" content="website" />
-<meta property="og:title" content="Stopwatch Game — Stop at 10 Seconds" />
-<meta property="og:description" content="Start the hidden timer and click stop at exactly 10 seconds. Free online timing challenge." />
-<meta property="og:url" content="https://www.guessthesecond.com/stopwatch.html" />
-<meta property="og:image" content="https://www.guessthesecond.com/assets/og-image.png" />
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Stopwatch Game — Stop at 10 Seconds" />
-<meta name="twitter:description" content="Start the hidden timer and click stop at exactly 10 seconds. Free online timing challenge." />
-<meta name="twitter:image" content="https://www.guessthesecond.com/assets/og-image.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Stopwatch Game — Stop at 10 Seconds" />
+  <meta property="og:description" content="Start the hidden timer and click stop at exactly 10 seconds. Free online timing challenge." />
+  <meta property="og:url" content="https://www.guessthesecond.com/stopwatch.html" />
+  <meta property="og:image" content="https://www.guessthesecond.com/assets/og-image.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stopwatch Game — Stop at 10 Seconds" />
+  <meta name="twitter:description" content="Start the hidden timer and click stop at exactly 10 seconds. Free online timing challenge." />
+  <meta name="twitter:image" content="https://www.guessthesecond.com/assets/og-image.png" />
     <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#8a5a3b" />
   <link rel="apple-touch-icon" href="assets/icon-192.png" />
@@ -36,7 +35,7 @@
     "name": "Stopwatch Game",
     "description": "Start a timer and try to stop it at exactly 10 seconds.",
     "url": "https://www.guessthesecond.com/stopwatch.html",
-    "isPartOf": { "@type": "WebSite", "name": "Guess the Second", "url": "https://www.guessthesecond.com/" }
+    "isPartOf": { "@type": "WebSite", "name": "Guess the Time", "url": "https://www.guessthesecond.com/" }
   }
   </script>
 </head>
@@ -55,7 +54,7 @@
       d.innerHTML='<div style="max-width:480px;background:#1e293b;border:1px solid #334155;border-radius:16px;padding:2rem;text-align:center;color:#f1f5f9;box-shadow:0 20px 60px rgba(0,0,0,.5)">'+
         '<div style="font-size:3rem;margin-bottom:.75rem">🛡️</div>'+
         '<div style="font-size:1.4rem;font-weight:700;margin-bottom:.5rem">Ad blocker detected</div>'+
-        '<p style="color:#94a3b8;font-size:.95rem;line-height:1.55;margin-bottom:1.25rem">Guess the Second is free and supported by ads. Please disable your ad blocker (or turn off Brave Shields for this site) and refresh the page to continue.</p>'+
+        '<p style="color:#94a3b8;font-size:.95rem;line-height:1.55;margin-bottom:1.25rem">Guess the Time is free and supported by ads. Please disable your ad blocker (or turn off Brave Shields for this site) and refresh the page to continue.</p>'+
         '<button onclick="location.reload()" style="background:#38bdf8;color:#0f172a;border:none;border-radius:10px;padding:.85rem 1.5rem;font-size:1rem;font-weight:700;cursor:pointer;width:100%">Refresh after disabling</button>'+
         '</div>';
       document.body.appendChild(d);
@@ -65,7 +64,7 @@
 
   <header class="site-header">
     <div class="container nav">
-      <a href="index.html" class="logo">⏱️ Guess the Second</a>
+      <a href="index.html" class="logo">⏱️ Guess the Time</a>
       <nav class="nav-links">
         <a href="type-solo.html">Type Solo</a>
         <a href="versus.html">Versus</a>
@@ -141,7 +140,7 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <div class="logo">⏱️ Guess the Second</div>
+        <div class="logo">⏱️ Guess the Time</div>
         <p>A free online timing game to test and improve your internal clock.</p>
       </div>
       <div>
@@ -157,11 +156,10 @@
         <a href="how-to-play.html">How to Play</a>
         <a href="tips.html">Tips &amp; Strategy</a>
         <a href="about.html">About</a>
-        <!-- <a href="contact.html">Contact</a> -->
         <a href="privacy.html">Privacy Policy</a>
       </div>
     </div>
-    <div class="container copyright">© <span id="year"></span> Guess the Second. All rights reserved.</div>
+    <div class="container copyright">© <span id="year"></span> Guess the Time. All rights reserved.</div>
   </footer>
 
   <script>
@@ -188,15 +186,17 @@
       }
 
       function pad(n) { return n < 10 ? "0" + n : "" + n; }
+      // Flicker random clock-style MM:SS values while the timer runs —
+      // looks like a running clock, but the values are pure noise and
+      // reveal nothing about the real elapsed time.
       function startFlicker() {
         stopFlicker();
         function tick() {
-          var sec = Math.floor(Math.random() * 15);
-          var frac = Math.floor(Math.random() * 100);
-          display.textContent = pad(sec) + "." + (frac < 10 ? "0" + frac : frac) + "s";
+          display.textContent = pad(Math.floor(Math.random() * 60)) + ":" +
+                                pad(Math.floor(Math.random() * 60));
         }
         tick();
-        flicker = setInterval(tick, 45);
+        flicker = setInterval(tick, 100);
       }
       function stopFlicker() {
         if (flicker) { clearInterval(flicker); flicker = null; }
@@ -252,11 +252,11 @@
         function getText() {
           var r = window.__lastSWResult || { elapsed: 10, absDiff: 0 };
           return "I stopped the timer at " + r.elapsed.toFixed(2) +
-                 "s — just " + r.absDiff.toFixed(2) + "s off! Can you beat me at Guess the Second?";
+                 "s — just " + r.absDiff.toFixed(2) + "s off! Can you beat me at Guess the Time?";
         }
         main.addEventListener("click", function () {
           var url = window.location.origin + window.location.pathname;
-          if (navigator.share) { navigator.share({ title:"Guess the Second", text:getText(), url:url }).catch(function(){}); }
+          if (navigator.share) { navigator.share({ title:"Guess the Time", text:getText(), url:url }).catch(function(){}); }
           else { alt.hidden = !alt.hidden; }
         });
         alt.addEventListener("click", function (e) {

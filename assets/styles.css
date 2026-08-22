@@ -1,5 +1,5 @@
 /* ============================================================
-   Guess the Second — playful "2D game" UI theme
+   Guess the Time — playful "2D game" UI theme
    Inspired by the bouncy, glossy, candy-colored look of Cut the Rope.
    (Google Fonts are loaded via <link> + preconnect in each HTML page
    for better Core Web Vitals — do not @import here.)
@@ -587,6 +587,41 @@ main { flex: 1; padding: 1.5rem 0 2.5rem; }
   color: #86efac;
   text-shadow: 0 0 22px rgba(134,239,172,.8);
   animation: donePop .5s cubic-bezier(.2,.9,.3,1.5);
+}
+/* Live team standings between rounds */
+.round-standings {
+  margin-top: 1rem;
+  background: rgba(255,255,255,.55);
+  border: 2px dashed rgba(94,59,37,.25);
+  border-radius: 14px;
+  padding: .8rem 1rem .9rem;
+}
+.round-standings h4 {
+  margin: 0 0 .4rem;
+  font-size: 1rem;
+}
+.round-standings ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.round-standings li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .75rem;
+  padding: .32rem 0;
+  font-size: .95rem;
+  border-top: 1px solid rgba(0,0,0,.07);
+}
+.round-standings li:first-child {
+  border-top: 0;
+  font-weight: 600;
+}
+.round-standings li span:last-child {
+  color: var(--muted);
+  font-size: .88rem;
+  white-space: nowrap;
 }
 .revealed-time { color: var(--revealed); font-weight: 700; }
 @keyframes runPulse {
